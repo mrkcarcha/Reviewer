@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SS-1A | Academic Portfolio</title>
+
+<style>
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5efe6;
+    color: #4b3628;
+}
+
+/* LOGIN PAGE */
+
+#loginPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #eee0ce, #f9f5ed);
+}
+
+.login-box {
+    background: #fffaf3;
+    padding: 45px 35px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 35px #70543c25;
+}
+
+.logo {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.login-box h1 {
+    font-family: Georgia, serif;
+    color: #79583f;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: #927b65;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 9px 0;
+    border: 1px solid #d8c3aa;
+    border-radius: 9px;
+    background: #f8f1e8;
+    outline: none;
+}
+
+input:focus {
+    border-color: #79583f;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: #79583f;
+    color: white;
+    font-size: 15px;
+}
+
+.login-btn:hover {
+    background: #523b2b;
+}
+
+#error {
+    color: #b34444;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* DASHBOARD */
+
+#dashboard {
+    display: none;
+}
+
+header {
+    background: #79583f;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h2 {
+    font-family: Georgia, serif;
+}
+
+header small {
+    color: #eadbca;
+    display: block;
+    margin-top: 5px;
+}
+
+.logout {
+    background: #f5efe6;
+    color: #65452f;
+    padding: 11px 20px;
+}
+
+.logout:hover {
+    background: #e2cdb5;
+}
+
+/* HERO SECTION */
+
+.hero {
+    padding: 75px 8%;
+    background: #e9dac8;
+}
+
+.hero small {
+    color: #79583f;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 45px);
+    margin: 18px 0;
+}
+
+.hero p {
+    line-height: 1.8;
+    max-width: 680px;
+    color: #70543c;
+}
+
+/* CREATOR INFORMATION */
+
+.creator-info {
+    margin-top: 25px;
+    padding: 18px 22px;
+    border-left: 4px solid #79583f;
+    background: #fffaf3;
+    border-radius: 8px;
+    max-width: 450px;
+    line-height: 1.8;
+}
+
+.creator-info strong {
+    color: #79583f;
+}
+
+/* SUBJECT SECTION */
+
+section {
+    padding: 55px 8%;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: #927b65;
+    margin-bottom: 30px;
+}
+
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(220px, 1fr)
+    );
+    gap: 22px;
+}
+
+.card {
+    background: #fffaf3;
+    padding: 27px;
+    border-radius: 15px;
+    border: 1px solid #e2d1bd;
+    box-shadow: 0 5px 15px #8b735b15;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px #8b735b25;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #79583f;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #927b65;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card a {
+    display: inline-block;
+    text-decoration: none;
+    background: #79583f;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.card a:hover {
+    background: #523b2b;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    background: #e9dac8;
+    line-height: 1.8;
+}
+
+.about p {
+    max-width: 750px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    background: #79583f;
+    color: white;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    .hero {
+        padding: 50px 7%;
+    }
+
+    section {
+        padding: 40px 7%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOGIN PAGE
+========================= -->
+
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <div class="logo">📚</div>
+
+        <h1>SS-1A Portfolio</h1>
+
+        <p>
+            Welcome to our Academic Portfolio.
+            Please log in to continue.
+        </p>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter Username"
+            autocomplete="username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            autocomplete="current-password"
+        >
+
+        <button class="login-btn" onclick="login()">
+            Login to Portfolio
+        </button>
+
+        <div id="error"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN DASHBOARD
+========================= -->
+
+<div id="dashboard">
+
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <div>
+            <h2>SS-1A | My Portfolio</h2>
+            <small>Created by Mark Carcha</small>
+        </div>
+
+        <button class="logout" onclick="logout()">
+            Logout ↗
+        </button>
+
+    </header>
+
+
+    <!-- WELCOME SECTION -->
+
+    <div class="hero">
+
+        <small>ACADEMIC PORTFOLIO • 2026</small>
+
+        <h1>Welcome to Our Portfolio!</h1>
+
+        <p>
+            This website serves as our academic portfolio,
+            showcasing our learning materials, activities,
+            projects, assignments, and academic achievements.
+
+            Explore the different subjects below and access
+            their respective Google Drive folders.
+        </p>
+
+        <!-- CREATOR DETAILS -->
+
+        <div class="creator-info">
+
+            <p>
+                <strong>Website Creator:</strong>
+                Mark Carcha
+            </p>
+
+            <p>
+                Bachelor of Secondary Education
+            </p>
+
+            <p>
+                Major in Social Studies
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECT SECTION -->
+
+    <section>
+
+        <h2 class="section-title">
+            Academic Subjects
+        </h2>
+
+        <p class="section-description">
+            Select a subject to explore its learning
+            materials, activities, and files.
+        </p>
+
+        <div class="subjects">
+
+
+            <!-- ETHICS -->
+
+            <div class="card">
+
+                <div class="icon">⚖️</div>
+
+                <h3>ETHICS</h3>
+
+                <p>
+                    Modules, activities, assignments,
+                    reviewers, and learning outputs.
+                </p>
+
+                <a
+                href="https://drive.google.com/drive/folders/1hOmVtHShU8upsFfUSaJpb6sN5dK8M5Tm?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                    Open Files ↗
+
+                </a>
+
+            </div>
+
+
+            <!-- FOUNDATION OF SOCIAL STUDIES -->
+
+            <div class="card">
+
+                <div class="icon">📖</div>
+
+                <h3>Foundation of Social Studies</h3>
+
+                <p>
+                    Lessons, modules, activities,
+                    and presentations.
+                </p>
+
+                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                    Open Files ↗
+                </a>
+
+            </div>
+
+
+            <!-- PROFESSIONAL EDUCATION -->
+
+            <div class="card">
+
+                <div class="icon">🎓</div>
+
+                <h3>Professional Education</h3>
+
+                <p>
+                    Educational theories, learning
+                    materials, and course requirements.
+                </p>
+
+                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                    Open Files ↗
+                </a>
+
+            </div>
+
+
+            <!-- UNDERSTANDING THE SELF -->
+
+            <div class="card">
+
+                <div class="icon">🌍</div>
+
+                <h3>Understanding the Self</h3>
+
+                <p>
+                    Personal reflections, activities,
+                    and academic outputs.
+                </p>
+
+                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                    Open Files ↗
+                </a>
+
+            </div>
+
+
+            <!-- GENERAL EDUCATION -->
+
+            <div class="card">
+
+                <div class="icon">📝</div>
+
+                <h3>General Education</h3>
+
+                <p>
+                    Reviewers, assignments,
+                    presentations, and projects.
+                </p>
+
+                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                    Open Files ↗
+                </a>
+
+            </div>
+
+
+            <!-- NSTP -->
+
+            <div class="card">
+
+                <div class="icon">🤝</div>
+
+                <h3>NSTP 1</h3>
+
+                <p>
+                    Community involvement, activities,
+                    and course requirements.
+                </p>
+
+                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                    Open Files ↗
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT PORTFOLIO -->
+
+    <section class="about">
+
+        <h2 class="section-title">
+            About This Portfolio
+        </h2>
+
+        <p>
+            This academic portfolio is designed to organize
+            and present our educational journey. It provides
+            an accessible space for our learning resources,
+            academic activities, accomplishments, and
+            experiences throughout the semester.
+
+            Through this platform, we aim to showcase our
+            progress, knowledge, creativity, and development
+            as future educators.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 SS-1A Academic Portfolio
+        </p>
+
+        <p>
+            Website Created by <strong>Mark Carcha</strong>
+        </p>
+
+        <p>
+            Bachelor of Secondary Education - Social Studies
+        </p>
+
+        <p>
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT LOGIN SYSTEM
+========================= -->
+
+<script>
+
+// LOGIN CREDENTIALS
+
+const correctUsername = "SS-1A";
+const correctPassword = "12345678";
+
+
+// LOGIN FUNCTION
+
+function login() {
+
+    const user =
+        document.getElementById("username").value.trim();
+
+    const pass =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("error");
+
+    if (
+        user === correctUsername &&
+        pass === correctPassword
+    ) {
+
+        document.getElementById("loginPage").style.display = "none";
+
+        document.getElementById("dashboard").style.display = "block";
+
+        error.innerText = "";
+
+        window.scrollTo(0, 0);
+
+    } else {
+
+        error.innerText =
+            "Incorrect username or password. Please try again.";
+
+    }
+
+}
+
+
+// ENTER KEY LOGIN
+
+document.getElementById("password")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        login();
+    }
+
+});
+
+
+// LOGOUT FUNCTION
+
+function logout() {
+
+    document.getElementById("dashboard").style.display = "none";
+
+    document.getElementById("loginPage").style.display = "flex";
+
+    document.getElementById("username").value = "";
+
+    document.getElementById("password").value = "";
+
+    document.getElementById("error").innerText = "";
+
+}
+
+</script>
+
+</body>
+</html>
