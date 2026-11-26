@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SS-1A | Academic Portfolio</title>
 
 <style>
@@ -12,274 +11,338 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5efe6;
+    min-height: 100vh;
     color: #4b3628;
+    background: linear-gradient(-45deg, #ead8c5, #f5eee6, #d6bfa8, #f1e4d6);
+    background-size: 400% 400%;
+    animation: backgroundMove 15s ease infinite;
 }
 
-/* LOGIN */
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-#loginPage {
+#loginPage, #dashboard {
+    position: relative;
     min-height: 100vh;
+    overflow: hidden;
+}
+
+#loginPage::before,
+#loginPage::after,
+#dashboard::before,
+#dashboard::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    pointer-events: none;
+    animation: floatCircle 12s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+#loginPage::before, #dashboard::before {
+    width: 250px;
+    height: 250px;
+    top: 8%;
+    left: -70px;
+}
+
+#loginPage::after, #dashboard::after {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes floatCircle {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-45px) rotate(20deg); }
+}
+
+.login-box, header, .hero, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* LOGIN PAGE */
+#loginPage {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     padding: 20px;
-    background: linear-gradient(135deg, #eee0ce, #f9f5ed);
 }
 
 .login-box {
-    background: #fffaf3;
-    padding: 45px 35px;
     width: 100%;
     max-width: 400px;
-    border-radius: 20px;
+    padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 10px 35px #70543c25;
-}
-
-.logo {
-    font-size: 48px;
-    margin-bottom: 15px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(75,54,40,0.15);
+    animation: fadeIn 1s ease;
 }
 
 .login-box h1 {
-    font-family: Georgia, serif;
-    color: #79583f;
-    margin-bottom: 10px;
+    color: #704b35;
+    margin-bottom: 8px;
 }
 
 .login-box p {
-    color: #927b65;
+    color: #806653;
     margin-bottom: 25px;
 }
 
-input {
+.login-box input {
     width: 100%;
-    padding: 14px;
-    margin: 9px 0;
-    border: 1px solid #d8c3aa;
-    border-radius: 9px;
-    background: #f8f1e8;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #c9ad94;
+    border-radius: 8px;
     outline: none;
+    background: #fffaf5;
 }
 
-input:focus {
-    border-color: #79583f;
+.login-box input:focus {
+    border-color: #805b40;
 }
 
-button {
-    cursor: pointer;
+.login-box button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
     border: none;
-    border-radius: 9px;
+    border-radius: 8px;
+    background: #765238;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.login-btn {
-    width: 100%;
-    padding: 14px;
-    margin-top: 15px;
-    background: #79583f;
-    color: white;
-    font-size: 15px;
+.login-box button:hover {
+    background: #4b3628;
+    transform: translateY(-2px);
 }
 
-.login-btn:hover {
-    background: #523b2b;
-}
-
-#error {
-    color: #b34444;
-    margin-top: 15px;
+#errorMessage {
+    color: #b33b32;
+    margin-top: 12px;
     font-size: 14px;
 }
 
 /* DASHBOARD */
-
 #dashboard {
     display: none;
 }
 
 header {
-    background: #79583f;
-    color: white;
-    padding: 20px 7%;
+    padding: 22px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+    background: rgba(91,62,43,0.92);
+    color: white;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
 }
 
 header h2 {
-    font-family: Georgia, serif;
+    letter-spacing: 1px;
 }
 
-header small {
-    color: #eadbca;
-    display: block;
-    margin-top: 5px;
+header button {
+    padding: 9px 18px;
+    border: 1px solid white;
+    border-radius: 7px;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.logout {
-    background: #f5efe6;
-    color: #65452f;
-    padding: 11px 20px;
+header button:hover {
+    background: white;
+    color: #5b3e2b;
 }
-
-.logout:hover {
-    background: #e2cdb5;
-}
-
-/* HERO */
 
 .hero {
-    padding: 75px 8%;
-    background: #e9dac8;
-}
-
-.hero small {
-    color: #79583f;
-    letter-spacing: 3px;
-    font-weight: bold;
+    text-align: center;
+    padding: 65px 20px;
+    background: rgba(233,218,200,0.72);
 }
 
 .hero h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(30px, 5vw, 45px);
-    margin: 18px 0;
+    font-size: clamp(28px, 5vw, 42px);
+    color: #5b3e2b;
+    margin-bottom: 12px;
 }
 
 .hero p {
-    line-height: 1.8;
-    max-width: 680px;
-    color: #70543c;
+    color: #765b46;
+    line-height: 1.7;
 }
 
-/* CREATOR */
-
-.creator-info {
-    margin-top: 25px;
-    padding: 18px 22px;
-    border-left: 4px solid #79583f;
-    background: #fffaf3;
-    border-radius: 8px;
-    max-width: 450px;
-    line-height: 1.8;
+.creator {
+    margin-top: 20px;
+    font-weight: 600;
 }
 
-.creator-info strong {
-    color: #79583f;
-}
-
-/* SUBJECTS */
-
+/* SUBJECT SECTION */
 section {
     padding: 55px 8%;
 }
 
 .section-title {
-    font-family: Georgia, serif;
-    font-size: 29px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.section-description {
-    color: #927b65;
-    margin-bottom: 30px;
+.section-title h2 {
+    color: #5b3e2b;
+    font-size: 28px;
+    margin-bottom: 8px;
 }
 
-.subjects {
+.section-title p {
+    color: #806653;
+}
+
+.subject-grid {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(230px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 22px;
 }
 
-.card {
-    background: #fffaf3;
-    padding: 27px;
+.subject-card {
+    padding: 28px 22px;
+    background: rgba(255,250,245,0.88);
+    border: 1px solid rgba(150,115,85,0.2);
     border-radius: 15px;
-    border: 1px solid #e2d1bd;
-    box-shadow: 0 5px 15px #8b735b15;
-    transition: 0.3s;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(75,54,40,0.08);
+    transition: 0.35s;
+    animation: cardAppear 0.8s ease both;
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px #8b735b25;
+.subject-card:nth-child(2) { animation-delay: .1s; }
+.subject-card:nth-child(3) { animation-delay: .2s; }
+.subject-card:nth-child(4) { animation-delay: .3s; }
+.subject-card:nth-child(5) { animation-delay: .4s; }
+.subject-card:nth-child(6) { animation-delay: .5s; }
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.icon {
+.subject-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(75,54,40,0.15);
+}
+
+.subject-icon {
     font-size: 38px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-.card h3 {
-    color: #79583f;
-    margin-bottom: 12px;
+.subject-card h3 {
+    color: #68462f;
+    margin-bottom: 10px;
 }
 
-.card p {
-    color: #927b65;
+.subject-card p {
     font-size: 14px;
+    color: #806653;
     line-height: 1.6;
+    min-height: 45px;
     margin-bottom: 20px;
 }
 
-.card a {
+.subject-card a {
     display: inline-block;
-    text-decoration: none;
-    background: #79583f;
+    padding: 10px 20px;
+    background: #765238;
     color: white;
-    padding: 11px 17px;
+    text-decoration: none;
     border-radius: 7px;
-    font-size: 14px;
+    transition: 0.3s;
 }
 
-.card a:hover {
-    background: #523b2b;
+.subject-card a:hover {
+    background: #4b3628;
 }
 
 /* ABOUT */
-
 .about {
-    background: #e9dac8;
-    line-height: 1.8;
+    padding: 45px 10%;
+    text-align: center;
+    background: rgba(233,218,200,0.72);
+}
+
+.about h2 {
+    color: #5b3e2b;
+    margin-bottom: 15px;
 }
 
 .about p {
     max-width: 750px;
+    margin: auto;
+    line-height: 1.8;
+    color: #765b46;
 }
-
-/* FOOTER */
 
 footer {
+    padding: 22px;
     text-align: center;
-    padding: 30px 15px;
-    background: #79583f;
+    background: #5b3e2b;
     color: white;
-    font-size: 13px;
-    line-height: 2;
+    font-size: 14px;
 }
 
-/* MOBILE */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     header {
-        padding: 18px 5%;
+        justify-content: center;
+        text-align: center;
     }
 
     .hero {
-        padding: 50px 7%;
+        padding: 45px 18px;
     }
 
     section {
-        padding: 40px 7%;
+        padding: 40px 6%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
 </style>
@@ -288,379 +351,149 @@ footer {
 <body>
 
 <!-- LOGIN PAGE -->
-
 <div id="loginPage">
-
     <div class="login-box">
+        <h1>SS-1A</h1>
+        <p>Academic Portfolio Website</p>
 
-        <div class="logo">📚</div>
+        <form onsubmit="login(event)">
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter Username"
+                required
+            >
 
-        <h1>SS-1A Portfolio</h1>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                required
+            >
 
-        <p>
-            Welcome to our Academic Portfolio.
-            Please log in to continue.
-        </p>
+            <button type="submit">Login</button>
+        </form>
 
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter Username"
-            autocomplete="username"
-        >
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter Password"
-            autocomplete="current-password"
-        >
-
-        <button class="login-btn" onclick="login()">
-            Login to Portfolio
-        </button>
-
-        <div id="error"></div>
-
+        <div id="errorMessage"></div>
     </div>
-
 </div>
 
-
-<!-- MAIN DASHBOARD -->
-
+<!-- DASHBOARD -->
 <div id="dashboard">
 
-    <!-- HEADER -->
-
     <header>
-
-        <div>
-            <h2>SS-1A | My Portfolio</h2>
-            <small>Created by Mark Carcha</small>
-        </div>
-
-        <button class="logout" onclick="logout()">
-            Logout ↗
-        </button>
-
+        <h2>SS-1A | Academic Portfolio</h2>
+        <button onclick="logout()">Logout</button>
     </header>
 
-
-    <!-- WELCOME -->
-
     <div class="hero">
-
-        <small>ACADEMIC PORTFOLIO • 2026</small>
-
-        <h1>Welcome to Our Portfolio!</h1>
-
+        <h1>Welcome to Our Academic Portfolio</h1>
         <p>
-            This website serves as our academic portfolio,
-            showcasing our learning materials, activities,
-            projects, assignments, and academic achievements.
-
-            Explore the different subjects below and access
-            their respective Google Drive folders.
+            A collection of academic activities, learning materials,
+            projects, and accomplishments.
         </p>
 
-        <div class="creator-info">
-
-            <p>
-                <strong>Website Creator:</strong>
-                Mark Carcha
-            </p>
-
-            <p>
-                Bachelor of Secondary Education
-            </p>
-
-            <p>
-                Major in Social Studies
-            </p>
-
+        <div class="creator">
+            Created by: Mark Carcha<br>
+            Bachelor of Secondary Education - Social Studies
         </div>
-
     </div>
 
-
-    <!-- SUBJECTS -->
-
     <section>
+        <div class="section-title">
+            <h2>My Academic Subjects</h2>
+            <p>Select a subject to access its Google Drive folder.</p>
+        </div>
 
-        <h2 class="section-title">
-            My Academic Subjects
-        </h2>
+        <div class="subject-grid">
 
-        <p class="section-description">
-            Select a subject to access its Google Drive
-            folder, learning materials, activities,
-            and academic requirements.
-        </p>
-
-        <div class="subjects">
-
-            <!-- PROF ED -->
-
-            <div class="card">
-
-                <div class="icon">🎓</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">📚</div>
                 <h3>PROF ED</h3>
-
-                <p>
-                    Professional Education modules,
-                    lessons, activities, and requirements.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=1EbzQuPXtctoFYHbxdi0_f_E-fbLbj2Od&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>Professional Education learning materials, activities, and outputs.</p>
+                <a href="https://drive.google.com/open?id=1EbzQuPXtctoFYHbxdi0_f_E-fbLbj2Od&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
-
-            <!-- ETHICS -->
-
-            <div class="card">
-
-                <div class="icon">⚖️</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">⚖️</div>
                 <h3>ETHICS</h3>
-
-                <p>
-                    Ethics modules, assignments,
-                    reviewers, and learning outputs.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=1hOmVtHShU8upsFfUSaJpb6sN5dK8M5Tm&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>Ethical principles, reflections, activities, and requirements.</p>
+                <a href="https://drive.google.com/open?id=1hOmVtHShU8upsFfUSaJpb6sN5dK8M5Tm&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
-
-            <!-- FSSE -->
-
-            <div class="card">
-
-                <div class="icon">📖</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">🎓</div>
                 <h3>FSSE</h3>
-
-                <p>
-                    Foundation of Social Studies
-                    lessons, activities, and resources.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=1xNxCcIbhmvQor1P0rhafK-1A0GSgu7Pi&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>Foundations of Social Studies Education learning resources and outputs.</p>
+                <a href="https://drive.google.com/open?id=1xNxCcIbhmvQor1P0rhafK-1A0GSgu7Pi&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
-
-            <!-- UTS -->
-
-            <div class="card">
-
-                <div class="icon">🌍</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">🌍</div>
                 <h3>UTS</h3>
-
-                <p>
-                    Understanding the Self modules,
-                    reflections, and activities.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=1xKym6TA2fWkQMkCPzq4oByiKGJGnQrJa&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>Understanding the Self activities, reflections, and learning materials.</p>
+                <a href="https://drive.google.com/open?id=1xKym6TA2fWkQMkCPzq4oByiKGJGnQrJa&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
-
-            <!-- GENERAL EDUCATION -->
-
-            <div class="card">
-
-                <div class="icon">📝</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">📖</div>
                 <h3>GEN ED</h3>
-
-                <p>
-                    General Education materials,
-                    presentations, and assignments.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=12sDworSL6QIbldKwRkWF4CC5GTHxaxbX&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>General Education subjects, projects, and academic requirements.</p>
+                <a href="https://drive.google.com/open?id=12sDworSL6QIbldKwRkWF4CC5GTHxaxbX&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
-
-            <!-- NSTP -->
-
-            <div class="card">
-
-                <div class="icon">🤝</div>
-
+            <div class="subject-card">
+                <div class="subject-icon">🤝</div>
                 <h3>NSTP 1</h3>
-
-                <p>
-                    National Service Training Program
-                    activities and community projects.
-                </p>
-
-                <a
-                    href="https://drive.google.com/open?id=12wmV4mlI23m8Pfrnn6X1TGddEMk9Wtyb&usp=drive_copy"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Open Files ↗
-                </a>
-
+                <p>National Service Training Program activities and documentation.</p>
+                <a href="https://drive.google.com/open?id=12wmV4mlI23m8Pfrnn6X1TGddEMk9Wtyb&usp=drive_copy" target="_blank" rel="noopener">Open Folder</a>
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ABOUT -->
-
-    <section class="about">
-
-        <h2 class="section-title">
-            About This Portfolio
-        </h2>
-
+    <div class="about">
+        <h2>About This Portfolio</h2>
         <p>
-            This academic portfolio is designed to organize
-            and present our educational journey. It provides
-            an accessible space for our learning resources,
-            academic activities, accomplishments, and
-            experiences throughout the semester.
-
-            Through this platform, we aim to showcase our
-            progress, knowledge, creativity, and development
-            as future educators.
+            This academic portfolio serves as a digital collection of
+            learning experiences, academic activities, projects, and
+            accomplishments throughout the semester. It reflects
+            continuous learning, dedication, and growth as a future
+            Social Studies educator.
         </p>
-
-    </section>
-
-
-    <!-- FOOTER -->
+    </div>
 
     <footer>
-
-        <p>© 2026 SS-1A Academic Portfolio</p>
-
-        <p>
-            Website Created by
-            <strong>Mark Carcha</strong>
-        </p>
-
-        <p>
-            Bachelor of Secondary Education - Social Studies
-        </p>
-
-        <p>All Rights Reserved.</p>
-
+        © 2026 SS-1A Academic Portfolio | Created by Mark Carcha
     </footer>
 
 </div>
 
-
-<!-- JAVASCRIPT -->
-
 <script>
+function login(event) {
+    event.preventDefault();
 
-// LOGIN CREDENTIALS
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("errorMessage");
 
-const correctUsername = "SS-1A";
-const correctPassword = "12345678";
-
-
-// LOGIN FUNCTION
-
-function login() {
-
-    const user =
-        document.getElementById("username").value.trim();
-
-    const pass =
-        document.getElementById("password").value;
-
-    const error =
-        document.getElementById("error");
-
-    if (
-        user === correctUsername &&
-        pass === correctPassword
-    ) {
-
+    if (username === "SS-1A" && password === "12345678") {
         document.getElementById("loginPage").style.display = "none";
-
         document.getElementById("dashboard").style.display = "block";
-
-        error.innerText = "";
-
-        window.scrollTo(0, 0);
-
+        errorMessage.textContent = "";
     } else {
-
-        error.innerText =
-            "Incorrect username or password. Please try again.";
-
+        errorMessage.textContent = "Incorrect username or password. Please try again.";
     }
-
 }
 
-
-// ENTER KEY LOGIN
-
-document.getElementById("password")
-.addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-        login();
-    }
-
-});
-
-
-// LOGOUT FUNCTION
-
 function logout() {
-
     document.getElementById("dashboard").style.display = "none";
-
     document.getElementById("loginPage").style.display = "flex";
 
     document.getElementById("username").value = "";
-
     document.getElementById("password").value = "";
-
-    document.getElementById("error").innerText = "";
-
+    document.getElementById("errorMessage").textContent = "";
 }
-
 </script>
 
 </body>
