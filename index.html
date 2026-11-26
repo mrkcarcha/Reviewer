@@ -8,9 +8,6 @@
 <title>SS-1A | Academic Portfolio</title>
 
 <style>
-
-/* GENERAL */
-
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +20,7 @@ body {
     color: #4b3628;
 }
 
-/* LOGIN PAGE */
+/* LOGIN */
 
 #loginPage {
     min-height: 100vh;
@@ -45,7 +42,7 @@ body {
 }
 
 .logo {
-    font-size: 45px;
+    font-size: 48px;
     margin-bottom: 15px;
 }
 
@@ -137,7 +134,7 @@ header small {
     background: #e2cdb5;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     padding: 75px 8%;
@@ -162,7 +159,7 @@ header small {
     color: #70543c;
 }
 
-/* CREATOR INFORMATION */
+/* CREATOR */
 
 .creator-info {
     margin-top: 25px;
@@ -178,7 +175,7 @@ header small {
     color: #79583f;
 }
 
-/* SUBJECT SECTION */
+/* SUBJECTS */
 
 section {
     padding: 55px 8%;
@@ -198,7 +195,7 @@ section {
 .subjects {
     display: grid;
     grid-template-columns: repeat(
-        auto-fit, minmax(220px, 1fr)
+        auto-fit, minmax(230px, 1fr)
     );
     gap: 22px;
 }
@@ -218,7 +215,7 @@ section {
 }
 
 .icon {
-    font-size: 35px;
+    font-size: 38px;
     margin-bottom: 18px;
 }
 
@@ -248,7 +245,7 @@ section {
     background: #523b2b;
 }
 
-/* ABOUT SECTION */
+/* ABOUT */
 
 .about {
     background: #e9dac8;
@@ -270,10 +267,9 @@ footer {
     line-height: 2;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 
 @media(max-width: 600px) {
-
     header {
         padding: 18px 5%;
     }
@@ -285,17 +281,13 @@ footer {
     section {
         padding: 40px 7%;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     LOGIN PAGE
-========================= -->
+<!-- LOGIN PAGE -->
 
 <div id="loginPage">
 
@@ -335,14 +327,11 @@ footer {
 </div>
 
 
-<!-- =========================
-     MAIN DASHBOARD
-========================= -->
+<!-- MAIN DASHBOARD -->
 
 <div id="dashboard">
 
-
-    <!-- NAVIGATION -->
+    <!-- HEADER -->
 
     <header>
 
@@ -358,7 +347,7 @@ footer {
     </header>
 
 
-    <!-- WELCOME SECTION -->
+    <!-- WELCOME -->
 
     <div class="hero">
 
@@ -374,8 +363,6 @@ footer {
             Explore the different subjects below and access
             their respective Google Drive folders.
         </p>
-
-        <!-- CREATOR DETAILS -->
 
         <div class="creator-info">
 
@@ -397,20 +384,43 @@ footer {
     </div>
 
 
-    <!-- SUBJECT SECTION -->
+    <!-- SUBJECTS -->
 
     <section>
 
         <h2 class="section-title">
-            Academic Subjects
+            My Academic Subjects
         </h2>
 
         <p class="section-description">
-            Select a subject to explore its learning
-            materials, activities, and files.
+            Select a subject to access its Google Drive
+            folder, learning materials, activities,
+            and academic requirements.
         </p>
 
         <div class="subjects">
+
+            <!-- PROF ED -->
+
+            <div class="card">
+
+                <div class="icon">🎓</div>
+
+                <h3>PROF ED</h3>
+
+                <p>
+                    Professional Education modules,
+                    lessons, activities, and requirements.
+                </p>
+
+                <a
+                    href="https://drive.google.com/open?id=1EbzQuPXtctoFYHbxdi0_f_E-fbLbj2Od&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open Files ↗
+                </a>
+
+            </div>
 
 
             <!-- ETHICS -->
@@ -422,76 +432,60 @@ footer {
                 <h3>ETHICS</h3>
 
                 <p>
-                    Modules, activities, assignments,
+                    Ethics modules, assignments,
                     reviewers, and learning outputs.
                 </p>
 
                 <a
-                href="https://drive.google.com/drive/folders/1hOmVtHShU8upsFfUSaJpb6sN5dK8M5Tm?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer">
-
+                    href="https://drive.google.com/open?id=1hOmVtHShU8upsFfUSaJpb6sN5dK8M5Tm&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Open Files ↗
-
                 </a>
 
             </div>
 
 
-            <!-- FOUNDATION OF SOCIAL STUDIES -->
+            <!-- FSSE -->
 
             <div class="card">
 
                 <div class="icon">📖</div>
 
-                <h3>Foundation of Social Studies</h3>
+                <h3>FSSE</h3>
 
                 <p>
-                    Lessons, modules, activities,
-                    and presentations.
+                    Foundation of Social Studies
+                    lessons, activities, and resources.
                 </p>
 
-                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                <a
+                    href="https://drive.google.com/open?id=1xNxCcIbhmvQor1P0rhafK-1A0GSgu7Pi&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Open Files ↗
                 </a>
 
             </div>
 
 
-            <!-- PROFESSIONAL EDUCATION -->
-
-            <div class="card">
-
-                <div class="icon">🎓</div>
-
-                <h3>Professional Education</h3>
-
-                <p>
-                    Educational theories, learning
-                    materials, and course requirements.
-                </p>
-
-                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
-                    Open Files ↗
-                </a>
-
-            </div>
-
-
-            <!-- UNDERSTANDING THE SELF -->
+            <!-- UTS -->
 
             <div class="card">
 
                 <div class="icon">🌍</div>
 
-                <h3>Understanding the Self</h3>
+                <h3>UTS</h3>
 
                 <p>
-                    Personal reflections, activities,
-                    and academic outputs.
+                    Understanding the Self modules,
+                    reflections, and activities.
                 </p>
 
-                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                <a
+                    href="https://drive.google.com/open?id=1xKym6TA2fWkQMkCPzq4oByiKGJGnQrJa&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Open Files ↗
                 </a>
 
@@ -504,14 +498,17 @@ footer {
 
                 <div class="icon">📝</div>
 
-                <h3>General Education</h3>
+                <h3>GEN ED</h3>
 
                 <p>
-                    Reviewers, assignments,
-                    presentations, and projects.
+                    General Education materials,
+                    presentations, and assignments.
                 </p>
 
-                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                <a
+                    href="https://drive.google.com/open?id=12sDworSL6QIbldKwRkWF4CC5GTHxaxbX&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Open Files ↗
                 </a>
 
@@ -527,23 +524,25 @@ footer {
                 <h3>NSTP 1</h3>
 
                 <p>
-                    Community involvement, activities,
-                    and course requirements.
+                    National Service Training Program
+                    activities and community projects.
                 </p>
 
-                <a href="#" onclick="alert('Google Drive link not yet added.'); return false;">
+                <a
+                    href="https://drive.google.com/open?id=12wmV4mlI23m8Pfrnn6X1TGddEMk9Wtyb&usp=drive_copy"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     Open Files ↗
                 </a>
 
             </div>
-
 
         </div>
 
     </section>
 
 
-    <!-- ABOUT PORTFOLIO -->
+    <!-- ABOUT -->
 
     <section class="about">
 
@@ -570,30 +569,25 @@ footer {
 
     <footer>
 
-        <p>
-            © 2026 SS-1A Academic Portfolio
-        </p>
+        <p>© 2026 SS-1A Academic Portfolio</p>
 
         <p>
-            Website Created by <strong>Mark Carcha</strong>
+            Website Created by
+            <strong>Mark Carcha</strong>
         </p>
 
         <p>
             Bachelor of Secondary Education - Social Studies
         </p>
 
-        <p>
-            All Rights Reserved.
-        </p>
+        <p>All Rights Reserved.</p>
 
     </footer>
 
 </div>
 
 
-<!-- =========================
-     JAVASCRIPT LOGIN SYSTEM
-========================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
